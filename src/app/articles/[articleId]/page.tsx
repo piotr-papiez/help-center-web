@@ -23,7 +23,7 @@ export default async function ArticlePage({ params }: ArticlePagePropsType) {
 
     const response = await getArticle(articleId);
 
-    if (!response.ok) return <p>{response.message}</p>;
+    if (!response.ok) return <p>Serwer się uruchamia. Odśwież stronę.</p>;
 
     const articleTitle: string = response.article.title;
     const arrayArticle: ArrayArticleDataType = JSON.parse(response.article.content);
