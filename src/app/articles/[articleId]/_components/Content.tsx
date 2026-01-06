@@ -13,9 +13,6 @@ import Dialog from "./Dialog";
 // Hooks
 import { useEffect, useRef, useState } from "react";
 
-// Portals
-import { createPortal } from "react-dom";
-
 // Types
 import type { ArrayArticleDataType } from "@/types/article.types";
 
@@ -94,7 +91,7 @@ export default function Content({ articleTitle, arrayContent, intersectingIds, s
             dialogRef.current?.close();
             setImageSource(null);
         }, 300);
-        
+
     }
 
     const htmlContent: TrustedHTML | null = containersToHTML(arrayContent);

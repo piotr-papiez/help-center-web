@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 
 import { Red_Hat_Text, Fira_Code } from "next/font/google";
@@ -16,8 +16,13 @@ const redHatMono = Fira_Code({
 });
 
 export const metadata: Metadata = {
-  // title: "Centrum Pomocy Sellasist",
+  title: "Centrum Pomocy Sellasist",
   description: "Poznaj wszystkie funkcjonalności systemu Sellasist"
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1
 };
 
 type RootLayoutPropsType = {
