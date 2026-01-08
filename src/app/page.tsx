@@ -1,7 +1,7 @@
-export default function Article() {
+
+
+export default function HomePage() {
   return (
-    <>
-      <h1>/articles/articleId</h1>
-    </>
+    <p>as</p>
   );
 }

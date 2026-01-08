@@ -12,7 +12,7 @@
 
 body {
   margin: auto;
-  background-color: var(--background-color);
+  /* background-color: var(--background-color); */
 }
 
 h1 {
@@ -205,6 +205,10 @@ section {
   margin: auto;
 }
 
+nav span b {
+  font-weight: 700;
+}
+
 nav ul {
   list-style-type: none;
   padding-left: 0;
@@ -218,7 +222,7 @@ nav ul li {
 
 nav ul li a {
   display: flex;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   color: var(--font-color);
   text-decoration: none;
   border-left: 3px solid transparent;

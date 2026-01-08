@@ -34,6 +34,14 @@ export default function Article({ articleTitle, arrayArticle }: ArticlePropsType
         setArrayHeadings(headings);
     }, [arrayArticle]);
 
+    useEffect(() => {
+        const hashId = decodeURIComponent(window.location.hash.slice(1));
+        if (!hashId) return;
+
+        const targetHeader = document.getElementById(hashId);
+        if (targetHeader) targetHeader.scrollIntoView();
+    }, [arrayContent]);
+
     return (
         <article>
             <aside>

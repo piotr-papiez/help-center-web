@@ -1,4 +1,5 @@
 // Components
+import LegacyArticle from "./_components/LegacyArticle";
 import Article from "./_components/Article";
 
 // Constants
@@ -10,7 +11,7 @@ const OBSERVER_PARAMS = {
 import { getArticle } from "../../../../lib/api/article";
 
 // Types
-import type { ArrayArticleDataType } from "@/types/article.types";
+import type { LegacyArticleDataType, ArrayArticleDataType } from "@/types/article.types";
 
 type ArticlePagePropsType = {
     params: { articleId: string };
@@ -26,12 +27,24 @@ export default async function ArticlePage({ params }: ArticlePagePropsType) {
     if (!response.ok) return <p>Serwer się uruchamia. Odśwież stronę.</p>;
 
     const articleTitle: string = response.article.title;
-    const arrayArticle: ArrayArticleDataType = JSON.parse(response.article.content);
 
-    return (
-        <Article
+    if ("text" in response.article) {
+        const stringArticle: string = response.article.text;
+
+        return (
+            <LegacyArticle 
             articleTitle={articleTitle}
-            arrayArticle={arrayArticle}
-        />
-    );
+            stringArticle={stringArticle}
+            />
+        )
+    } else {
+        const arrayArticle: ArrayArticleDataType = JSON.parse(response.article.content);
+
+        return (
+            <Article
+                articleTitle={articleTitle}
+                arrayArticle={arrayArticle}
+            />
+        );
+    }
 }
