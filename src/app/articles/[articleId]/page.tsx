@@ -29,7 +29,7 @@ export default async function ArticlePage({ params }: ArticlePagePropsType) {
     const articleTitle: string = response.article.title;
 
     if ("text" in response.article) {
-        const stringArticle: string = response.article.text;
+        const stringArticle: string = `${response.article.short}${response.article.text}`;
 
         return (
             <LegacyArticle 
