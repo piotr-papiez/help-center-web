@@ -18,6 +18,7 @@ import type { ArrayArticleDataType } from "@/types/article.types";
 
 // Utils
 import { containersToHTML } from "@/utils/object-to-html";
+import addZoomIconForLegacyImages from "@/utils/add-zoom-icon-for-legacy-images.util";
 
 type ContentPropsType = {
     articleTitle: string | null;
@@ -94,7 +95,9 @@ export default function Content({ articleTitle, arrayContent, intersectingIds, s
 
     }
 
-    const htmlContent: TrustedHTML | null = containersToHTML(arrayContent);
+    const preHtmlContent: string | null = containersToHTML(arrayContent);
+
+    const htmlContent = preHtmlContent ? addZoomIconForLegacyImages(preHtmlContent) : null;
 
     if (!htmlContent) return;
 

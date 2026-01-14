@@ -6,10 +6,14 @@ import Dialog from "./Dialog";
 // Hooks
 import { useEffect, useRef, useState } from "react";
 
+// Types
 type LegacyContentPropsType = {
     articleTitle: string | null;
     stringContent: string | null;
 };
+
+// Utils
+import addZoomIconForLegacyImages from "@/utils/add-zoom-icon-for-legacy-images.util";
 
 export default function LegacyContent({ articleTitle, stringContent }: LegacyContentPropsType) {
     const [imageSource, setImageSource] = useState<string | null>(null);
@@ -61,7 +65,9 @@ export default function LegacyContent({ articleTitle, stringContent }: LegacyCon
 
     }
 
-    const htmlContent: TrustedHTML | null = stringContent;
+    const preHtmlContent: string | null = stringContent;
+
+    const htmlContent = preHtmlContent ? addZoomIconForLegacyImages(preHtmlContent) : null;
 
     if (!htmlContent) return;
 

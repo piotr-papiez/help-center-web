@@ -118,6 +118,56 @@ img:hover {
   box-shadow: 0px 2px 6px 0px var(--border-color);
 }
 
+.image-wrapper {
+  position: relative;
+  width: fit-content;
+}
+
+.image-zoom-icon-wrapper {
+  display: flex;
+  position: absolute;
+  overflow: hidden;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 0.5rem;
+  padding: 0.4rem 0.25rem 0.25rem 0.45rem;
+  pointer-events: none;
+  transition: width 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  transition-delay: 0.1s;
+}
+
+.image-zoom-text {
+  position: absolute;
+  left: 1rem;
+  opacity: 0;
+  white-space: nowrap;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.image-wrapper:hover .image-zoom-icon-wrapper .image-zoom-text {
+  opacity: 1;
+  transition-delay: 0.15s;
+}
+
+.image-zoom-icon-wrapper .material-symbols-rounded {
+  position: absolute;
+  right: 0.4rem;
+  color: var(--font-color);
+  transition: all 0.2s;
+}
+
+.image-wrapper:hover .image-zoom-icon-wrapper {
+  width: 16rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  transition-delay: 0s;
+}
+
 .lightbox {
   position: fixed;
   border: 1px solid var(--border-color);
